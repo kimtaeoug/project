@@ -1,0 +1,25 @@
+@RequestMapping(value="/auth/google/callback")
+    public String googleCallback(HttpServletRequest req, HttpSession session) throws Exception {
+        String g_name = CmmUtil.nvl(req.getParameter("g_name"));
+        String g_image = CmmUtil.nvl(req.getParameter("g_image"));
+        String g_email = CmmUtil.nvl(req.getParameter("g_email"));
+        String g_token = CmmUtil.nvl(req.getParameter("g_token"));
+        
+        log.info(" g_name : " + g_name);
+        log.info(" g_image : " + g_image);
+        log.info(" g_email : " + g_email);
+        log.info(" g_token : " + g_token);
+        
+        // 회원정보가 있으면 로그인 없으면 DB 저장 후 로그인
+        /*UserDTO uDTO = new UserDTO();
+        uDTO.setGmail(g_email);
+        uDTO.setGname(g_name);
+        uDTO.setGimage(g_image);*/
+        
+        session.setAttribute("g_name", g_name);
+        session.setAttribute("g_image", g_image);
+        session.setAttribute("g_email", g_email);
+        session.setAttribute("g_token", g_token);
+        
+        return "redirect:/home.do";
+    }

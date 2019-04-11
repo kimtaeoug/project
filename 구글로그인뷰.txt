@@ -1,0 +1,25 @@
+<!-- view -->
+<header>
+    <meta name="google-signin-client_id" content="Client-ID">
+</header>
+<body>
+<!-- 버튼생성 -->
+<div class="g-signin2" data-onsuccess="onSignIn" data-width="240" data-height="40" data-longtitle="true" style="display: -webkit-inline-box;"></div>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        var g_name = profile.getName();
+        console.log('Name: ' + g_name);
+        var g_image = profile.getImageUrl();
+        console.log('Image URL: ' + g_image);
+        var g_email = profile.getEmail();
+        console.log('Email: ' + g_email); // This is null if the 'email' scope is not present.
+        var g_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + g_token);
+                        
+        location.href='/auth/google/callback.do?g_name='+g_name+'&g_image='+g_image+'&g_email='+g_email+'&g_token='+g_token;
+    }
+    </script>
+</body>
