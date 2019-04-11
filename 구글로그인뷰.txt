@@ -2,6 +2,8 @@
 <header>
 //meta로 client-ID등록
     <meta name="google-signin-client_id" content="Client-ID">
+    //google-signin-client_id는 임의로 정한 이름이 아니라 구글에서 정한 이름
+    //따라서 토큰을 갖고 오는 방법은 기존에 클라이언트아이디와 클라이언트시크릿을 보내지 않고, 메타로 클라이언트 아이디를 등록하면 자동으로 웹상에서 구글이 토큰을 갖다 
 </header>
 <body>
 //버튼생성
