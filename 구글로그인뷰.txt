@@ -22,6 +22,7 @@
         console.log("ID Token: " + g_token);
                         
         location.href='/auth/google/callback.do?g_name='+g_name+'&g_image='+g_image+'&g_email='+g_email+'&g_token='+g_token;
-    }
+   <!--/auth/gooogle/callback은 redirecturl -->
+   }
     </script>
 </body>
