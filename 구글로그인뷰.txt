@@ -1,11 +1,13 @@
 <!-- view -->
 <header>
+//meta로 client-ID등록
     <meta name="google-signin-client_id" content="Client-ID">
 </header>
 <body>
-<!-- ��ư���� -->
+//버튼생성
 <div class="g-signin2" data-onsuccess="onSignIn" data-width="240" data-height="40" data-longtitle="true" style="display: -webkit-inline-box;"></div>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+//버튼 생성 끝
 <script>
     function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
